@@ -5,6 +5,10 @@ from sqlalchemy.exc import OperationalError
 import time
 from app.core.config import settings
 from app.core.database import engine, Base
+from app.modules.users import models as user_models
+from app.modules.events import models as event_models
+from app.modules.registrations import models as registration_models
+from app.modules.checklist import models as checklist_models
 from app.modules.users.router import router as users_router
 from app.modules.events.router import router as events_router
 from app.modules.registrations.router import router as registrations_router
@@ -45,6 +49,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(users_router, prefix="/api/users", tags=["Users"])
 
 @app.get("/")
 def root():
