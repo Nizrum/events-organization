@@ -50,6 +50,10 @@ app.add_middleware(
 )
 
 app.include_router(users_router, prefix="/api/users", tags=["Users"])
+app.include_router(events_router, prefix="/api/events", tags=["Events"])
+app.include_router(
+    registrations_router, prefix="/api/registrations", tags=["Registrations"]
+)
 
 @app.get("/")
 def root():
