@@ -54,6 +54,10 @@ app.include_router(events_router, prefix="/api/events", tags=["Events"])
 app.include_router(
     registrations_router, prefix="/api/registrations", tags=["Registrations"]
 )
+app.include_router(
+    checklist_router, prefix="/api/checklist", tags=["Checklist"]
+)
+
 
 @app.get("/")
 def root():
