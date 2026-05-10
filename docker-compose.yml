@@ -36,6 +36,18 @@ services:
         volumes:
             - ./backend:/app
 
+    frontend:
+        build: ./frontend
+        container_name: event_app_frontend
+        ports:
+            - "80:80"
+        environment:
+            BACKEND_URL: http://backend:8000
+        depends_on:
+            - backend
+        networks:
+            - event_network
+
 networks:
     event_network:
         driver: bridge
