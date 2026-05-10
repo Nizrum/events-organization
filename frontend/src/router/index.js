@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from "../stores/auth";
+import { useEventsStore } from "../stores/events";
 
 const routes = [
 	{
@@ -16,6 +17,16 @@ const routes = [
 		path: "/register",
 		name: "Register",
 		component: () => import("../views/Register.vue"),
+	},
+	{
+		path: "/events",
+		name: "Events",
+		component: () => import("../views/Events.vue"),
+	},
+	{
+		path: "/events/:id",
+		name: "EventDetail",
+		component: () => import("../views/EventDetail.vue"),
 	},
 	{
 		path: "/profile",
