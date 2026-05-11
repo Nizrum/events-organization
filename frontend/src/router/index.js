@@ -29,10 +29,37 @@ const routes = [
 		component: () => import("../views/EventDetail.vue"),
 	},
 	{
+		path: "/events/create",
+		name: "CreateEvent",
+		component: () => import("../views/CreateEvent.vue"),
+		meta: { requiresAuth: true, requiresOrganizer: true },
+	},
+	{
+		path: "/events/edit/:id",
+		name: "EditEvent",
+		component: () => import("../views/EditEvent.vue"),
+		meta: { requiresAuth: true, requiresEventOwner: true },
+	},
+	{
+		path: "/my-events",
+		name: "MyEvents",
+		component: () => import("../views/MyEvents.vue"),
+		meta: { requiresAuth: true, requiresOrganizer: true },
+	},
+	{
 		path: "/profile",
 		name: "Profile",
 		component: () => import("../views/Profile.vue"),
 		meta: { requiresAuth: true },
+	},
+	{
+		path: "/404",
+		name: "NotFound",
+		component: () => import("../views/NotFound.vue"),
+	},
+	{
+		path: "/:pathMatch(.*)*",
+		redirect: "/404",
 	},
 ];
 
