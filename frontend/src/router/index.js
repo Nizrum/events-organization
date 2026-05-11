@@ -47,6 +47,12 @@ const routes = [
 		meta: { requiresAuth: true, requiresOrganizer: true },
 	},
 	{
+		path: "/my-registrations",
+		name: "MyRegistrations",
+		component: () => import("../views/MyRegistrations.vue"),
+		meta: { requiresAuth: true },
+	},
+	{
 		path: "/profile",
 		name: "Profile",
 		component: () => import("../views/Profile.vue"),
